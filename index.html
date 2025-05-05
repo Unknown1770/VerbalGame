@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Group Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Word Group Matching Game</h1>
+    <div id="score">Score: 0 / 0</div>
+    <div id="question"></div>
+    <div id="options"></div>
+    <div id="result"></div>
+
+    <div id="actionButtons" style="display: none; margin-top: 1rem;">
+      <button onclick="generateQuestion()" class="buttonMargin">Next Question</button>
+      <button onclick="showMeaning()" class="buttonMargin">View Meaning</button>
+      <button onclick="showSentence()" class="buttonMargin">Sentence Use</button>
+      <button onclick="showGroup()" class="buttonMargin">View Group</button>
+    </div>
+
+    <h2>Incorrect Answers Review</h2>
+    <div id="reviewList" class="review-list"></div>
+  </div>
+
+  <!-- Modal for meaning -->
+  <div id="meaningModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span onclick="closeModal()" class="close-btn">&times;</span>
+      <h3>Meaning of "<span id="meaningWord"></span>"</h3>
+      <p id="meaningText">Loading meaning...</p>
+      <button onclick="closeModal()">Close</button>
+      <button onclick="generateQuestion(); closeModal();">Next Question</button>
+    </div>
+  </div>
+
+  <!-- Modal for Sentence -->
+  <div id="sentenceModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span onclick="closeSentenceModal()" class="close-btn">&times;</span>
+      <h3>Use of "<span id="sentenceWord"></span>"</h3>
+      <p id="sentenceText">Loading sentence...</p>
+      <button onclick="closeSentenceModal()">Close</button>
+      <button onclick="generateQuestion(); closeSentenceModal();">Next Question</button>
+    </div>
+  </div>
+
+  <!-- Group Modal -->
+  <div id="groupModal">
+    <div class="modal-content">
+        <h2>Group: <span id="groupName"></span></h2>
+        <ul id="groupWords"></ul>
+        <button class="close" onclick="closeGroupModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="wordGroups.js"></script>
+<script src="wordMeaning.js"></script>
+<script src="wordSentence.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
